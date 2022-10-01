@@ -1,13 +1,14 @@
 import './App.css';
-import { Grid, Input, Text } from '@nextui-org/react';
-import { useState } from 'react';
+//import { Grid, Input, Text } from '@nextui-org/react';
+import { Text } from '@nextui-org/react';
+//import { useState } from 'react';
 
 //Import 3D force graph effect
 import React from 'react';
 import SampleData from './data/sample.json';
 //import * as THREE from 'three';
 import ForceGraph3d from "react-force-graph-3d";
-
+/*
 function WelcomeView (){
   const axios = require('axios');
   const [userInput, setUserInput] = useState('');
@@ -45,9 +46,21 @@ function WelcomeView (){
     </div>
   );
 }
-
-
+*/
+//Find the length of the SampleData object
+function DataMapper(N = 100) {
+  return {
+    nodes: [...Array(N).keys()].map(i => ({ id: i })),
+    links: [...Array(N).keys()]
+      .filter(id => id)
+      .map(id => ({
+        source: id,
+        target: Math.round(Math.random() * (id - 1))
+      }))
+  };
+}
 const UserView = () => {
+/*
   const axios = require('axios');
   
   //Use state to store the user input from the server return using axios
@@ -59,10 +72,11 @@ const UserView = () => {
     console.log(getResponse);
     setUserInput(getResponse.data);
   });
-
+*/
   // Format the user input as a JSON object
   //Turn the user input into a JSON object and store it in the data variable;
-  const gData = SampleData;
+  //const gData = SampleData;
+  const gData = DataMapper(SampleData.nodes.length);
  
   return (
     <div className="App">
@@ -80,6 +94,7 @@ const UserView = () => {
 }
 
 function App() {
+  /*
   const axios = require('axios');
   const [serverResponse, setServerResponse] = useState('');
   axios({
@@ -88,7 +103,7 @@ function App() {
   }).then((getResponse) => {
     setServerResponse(getResponse.data);
   });
-
+*/
   return (
       //Conditionally render the WelcomeView or UserView based on the serverResponse
       /*
