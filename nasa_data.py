@@ -12,8 +12,11 @@ Get the media urls from NASA API
 import json
 import requests
 
+gallery = []
+topics = ["apollo", "artemis"]
+
 def get_data(api):
-  response = requests.get(f"{api}")
+  response = requests.get(f"{api}", params={"keywords": "artemis"})
   if response.status_code == 200:
     print("sucessfully fetched the data")
     return response.json()
@@ -22,7 +25,9 @@ def get_data(api):
 
 
 # Get Responses
-data = get_data('https://images-api.nasa.gov/search?q=%27%27')
+data = get_data('https://images-api.nasa.gov/search?q=apollo')
+# Print the first element of the collection
+# print(data['collection']['items'][0])
 
 # Data Extract
 items = data['collection']['items']
@@ -34,6 +39,7 @@ for url in mediaUrl:
   # Print the index:
   print(mediaUrl.index(url))
   print(url)
+
 """
 from google.colab import drive
 drive.mount('/content/gdrive')
