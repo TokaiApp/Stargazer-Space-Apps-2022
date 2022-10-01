@@ -3,23 +3,27 @@ import { Grid, Input, Text } from '@nextui-org/react';
 import { useState } from 'react';
 import { axios } from 'axios';
 
-// Import a new view when the backend return a normal response
-import { userView } from './views/userView';
+// Instate the axios library
 
-const WelcomeView = () => {
-  const [inputValue, setInputValue] = useState('');
+
+
+function WelcomeView (){
+  const axios = require('axios');
+  const [userInput, setUserInput] = useState('');
   axios({
     method: 'post',
-    url: 'http://localhost:5000/api',
+    url: 'http://localhost:5000/api/v1/users',
     data: {
-      inputValue: inputValue,
-    },
+      input: userInput
+    }
   }).then((postResponse) => {
-      console.log(postResponse);
+    console.log(postResponse);
   });
 
   return (
-    <Grid.Container justify="center" alignItems="center" direction="column">
+    <div className="App">
+      <div className="App-background">
+        <Grid.Container justify="center" alignItems="center" direction="column">
           <Grid justify="center" alignItems="center" direction="column">
             <Text h1>Enter your Search</Text>
           </Grid>
@@ -27,30 +31,42 @@ const WelcomeView = () => {
             <Input 
               width="350px"
               placeholder="Your input here"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
+              //Get the user input and set it to the userInput state
+              onChange={(e) => setUserInput(e.target.value)}
               animated
             />
           </Grid>
         </Grid.Container>
+      </div>
+    </div>
+  );
+}
+
+const UserView = () => {
+  return (
+    <div className="App">
+      <div className="App-background">
+      <h1>userView</h1>
+      </div>
+    </div>
   );
 }
 
 function App() {
-  const backendResponse = axios({
+  const axios = require('axios');
+  const [serverResponse, setServerResponse] = useState('');
+  axios({
     method: 'get',
     url: 'http://localhost:5000/api',
-  }).then((response) => {
-    console.log(response);
-    return response;
+  }).then((getResponse) => {
+    setServerResponse(getResponse.data);
   });
 
   return (
-    <div className="App">
-      <div className="App-background">
-        {backendResponse.data === 'normal' ? <userView /> : <WelcomeView />}   
+      //Conditionally render the WelcomeView or UserView based on the serverResponse
+      <div>
+        {serverResponse === 'Welcome' ? <UserView /> : <WelcomeView />}
       </div>
-    </div>
   );
 }
 
