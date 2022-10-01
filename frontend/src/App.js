@@ -2,6 +2,12 @@ import './App.css';
 import { Grid, Input, Text } from '@nextui-org/react';
 import { useState } from 'react';
 
+//Import 3D force graph effect
+import React from 'react';
+import SampleData from './data/sample.json';
+//import * as THREE from 'three';
+import ForceGraph3d from "react-force-graph-3d";
+
 function WelcomeView (){
   const axios = require('axios');
   const [userInput, setUserInput] = useState('');
@@ -40,11 +46,34 @@ function WelcomeView (){
   );
 }
 
+
 const UserView = () => {
+  const axios = require('axios');
+  
+  //Use state to store the user input from the server return using axios
+  const [userInput, setUserInput] = useState('');
+  axios({
+    method: 'get',
+    url: 'http://localhost:5000/api/v1/users',
+  }).then((getResponse) => {
+    console.log(getResponse);
+    setUserInput(getResponse.data);
+  });
+
+  // Format the user input as a JSON object
+  //Turn the user input into a JSON object and store it in the data variable;
+  const gData = SampleData;
+ 
   return (
     <div className="App">
       <div className="App-background">
-      <h1>userView</h1>
+            <Text h1>Your Star Map</Text>
+            <ForceGraph3d
+              backgroundColor={"rgba(0,0,0,0)"}
+              nodeColor={() => "white"}
+              linkColor={() => "black"}
+              graphData={gData}
+            />
       </div>
     </div>
   );
@@ -62,8 +91,12 @@ function App() {
 
   return (
       //Conditionally render the WelcomeView or UserView based on the serverResponse
+      /*
       <div>
         {serverResponse === 'Welcome' ? <UserView /> : <WelcomeView />}
+      </div>*/
+      <div>
+        <UserView />
       </div>
   );
 }
