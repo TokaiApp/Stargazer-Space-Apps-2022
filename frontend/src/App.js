@@ -1,11 +1,6 @@
 import './App.css';
 import { Grid, Input, Text } from '@nextui-org/react';
 import { useState } from 'react';
-import { axios } from 'axios';
-
-// Instate the axios library
-
-
 
 function WelcomeView (){
   const axios = require('axios');
