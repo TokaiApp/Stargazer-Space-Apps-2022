@@ -19,8 +19,11 @@ function WelcomeView (){
     <div className="App">
       <div className="App-background">
         <Grid.Container justify="center" alignItems="center" direction="column">
+          <Grid justify='center' alignContent='center' direction="column">
+            <Text h4>Welcome 2022 NASA Space App Challenge</Text>
+          </Grid>
           <Grid justify="center" alignItems="center" direction="column">
-            <Text h1>Enter your Search</Text>
+            <Text h1>Enter your search</Text>
           </Grid>
           <Grid justify="center" alignItems="center" direction="column">
             <Input 
