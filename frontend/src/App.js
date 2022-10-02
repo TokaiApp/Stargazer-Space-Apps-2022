@@ -176,6 +176,7 @@ export default function App() {
 
   const handleClicked = () => {
     //Use axios to send the user input to the server without a cors error
+    //setUserInput('true');
     axios({
       method: 'POST',
       url: 'https://stagazerbackend.azurewebsites.net/api/request',
@@ -228,6 +229,7 @@ export default function App() {
       })),
     };
   }
+  console.log(userInput);
 /*
   var lens = SampleData.nodes.length;
   const gData = DataMapper(lens, SampleData);
@@ -255,7 +257,8 @@ export default function App() {
             aria-label="Close"
           />
         </Grid>
-        <Grid justify="center" alignItems="center" direction="column">
+        <Grid justify="center" alignItems="center" direction="row">
+          <Grid justify="center" alignItems="center" direction="row">
           <Button
             color="primary"
             auto
@@ -265,11 +268,23 @@ export default function App() {
           >
             Search
           </Button>
+          </Grid>
+        <Grid justify="center" alignItems="center" direction="row">
+          <Button
+            color="primary"
+            auto
+            onPress={() => {
+              handleClicked();
+            }}
+          >
+            Load it
+          </Button>
+          </Grid>
         </Grid>
         <Grid justify="center" alignItems="center" direction="column">
         {userInput ? (
             <ForceGraph3d
-              height={700}
+              height={400}
               backgroundColor={"rgba(0,0,0,0)"}
               nodeColor={() => "white"}
               linkColor={() => "black"}
