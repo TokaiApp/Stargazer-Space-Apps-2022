@@ -4,7 +4,7 @@ import { Grid, Input, Text, Button } from '@nextui-org/react';
 //Import 3D force graph effect
 import React from 'react';
 import { useState } from 'react';
-import SampleData from './data/sample.json';
+//import SampleData from './data/sample.json';
 import ForceGraph3d from "react-force-graph-3d";
 /*
 function WelcomeView (){
@@ -172,7 +172,7 @@ export default function App() {
   //Use state to store the status response from the server return using axios
   const axios = require('axios');
   const [userInput, setUserInput] = useState('');
-  const [serverResponse, setServerResponse] = useState('');
+  //const [serverResponse, setServerResponse] = useState('');
 
   const handleClicked = () => {
     //Use axios to send the user input to the server without a cors error
@@ -186,7 +186,7 @@ export default function App() {
                   'Accept': 'application/json, text/plain, */*',
                   'Accept-Language': 'en-US,en;q=0.9'}
     }).then((postResponse) => {
-      setServerResponse(postResponse.data);
+      setUserInput(postResponse.data);
       console.log(postResponse);
     }
     );
@@ -235,11 +235,10 @@ export default function App() {
   //Check if the server response is true
   //If true, then render the user view with the star map
   //If false, then render th text input and button
-  if (serverResponse) {
-    const gData = DataMapper(serverResponse.nodes.length, serverResponse);
+  if (userInput) {
+    var gData = DataMapper(userInput.nodes.length, userInput);
   }
-  const gData = DataMapper(SampleData.nodes.length, SampleData);
-  
+  //var gData = DataMapper(SampleData.nodes.length, SampleData);
 
   return (
     <div className="App">
@@ -268,7 +267,7 @@ export default function App() {
           </Button>
         </Grid>
         <Grid justify="center" alignItems="center" direction="column">
-          {serverResponse ? (
+        {userInput ? (
             <ForceGraph3d
               height={700}
               backgroundColor={"rgba(0,0,0,0)"}
@@ -277,12 +276,31 @@ export default function App() {
               graphData={gData}
             />
           ) : (
-            <Text h4>Waiting for the server response</Text>
+            <Text h4>Waiting for server response</Text>
           )}
-
         </Grid>
       </Grid.Container>
     </div>
   </div>
   );
 }
+/*
+{serverResponse ? (
+            <ForceGraph3d
+              height={700}
+              backgroundColor={"rgba(0,0,0,0)"}
+              nodeColor={() => "white"}
+              linkColor={() => "black"}
+              graphData={gData}
+            />
+          ) : (
+            <Text h4>Waiting for server response</Text>
+          )}
+          <ForceGraph3d
+              height={700}
+              backgroundColor={"rgba(0,0,0,0)"}
+              nodeColor={() => "white"}
+              linkColor={() => "black"}
+              graphData={gData}
+            />
+          */
