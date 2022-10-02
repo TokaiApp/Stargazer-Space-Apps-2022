@@ -24,7 +24,7 @@ data = get_data('https://images-api.nasa.gov/search?q=nebula&media_type=image') 
 items = data['collection']['items']
 total_hits = data['collection']['metadata']['total_hits']   # Total number of search results
 total_pages = total_hits // 100 + 1  # Total pages
-with open('nasa_data.csv', 'w', newline='') as f:
+with open('nasa_data.csv', 'w', newline='' ,encoding="utf-8") as f:
   writer = csv.writer(f)
   writer.writerow(["id", "title", "desc"])
   for i in range(1, total_pages + 1):
