@@ -21,6 +21,7 @@ def api_request():
     print('Request received with data: ', request.data)
     return 'ok'
 
+
 @app.route('/hello', methods=['POST'])
 def hello():
    name = request.form.get('name')
