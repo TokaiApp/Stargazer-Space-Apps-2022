@@ -4,7 +4,7 @@ import { Grid, Input, Text, Button } from '@nextui-org/react';
 //Import 3D force graph effect
 import React from 'react';
 import { useState } from 'react';
-import SampleData from './data/sample.json';
+//import SampleData from './data/sample.json';
 import ForceGraph3d from "react-force-graph-3d";
 /*
 function WelcomeView (){
@@ -187,16 +187,30 @@ export default function App() {
     //Use axios to send the user input to the server without a cors error
     axios({
       method: 'POST',
-      //url: 'https://stagazerbackend.azurewebsites.net/api/request',
       url: 'https://stagazerbackend.azurewebsites.net/api/request',
       data: userInput,
       headers: { 'Access-Control-Allow-Origin': '*',
                   'Content-Type': 'application/json',
-                  //Add encoding method as utf-8
                   'Accept': 'application/json, text/plain, */*',
                   'Accept-Language': 'en-US,en;q=0.9'}
     }).then((postResponse) => {
       console.log(postResponse);
+      return postResponse;
+    }
+    );
+  }
+
+  const handleResponse = () => {
+    axios({
+      method: 'GET',
+      url: 'https://stagazerbackend.azurewebsites.net/api/response',
+      headers: { 'Access-Control-Allow-Origin': '*',
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json, text/plain, */*',
+                  'Accept-Language': 'en-US,en;q=0.9'}
+    }).then((getResponse) => {
+      console.log(getResponse);
+      return getResponse;
     }
     );
   }
@@ -235,7 +249,7 @@ export default function App() {
             backgroundColor={"rgba(0,0,0,0)"}
             nodeColor={() => "white"}
             linkColor={() => "black"}
-            graphData={DataMapper(SampleData.nodes.length)}
+            graphData={DataMapper(handleResponse())}
           />
         </Grid>
 
