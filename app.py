@@ -21,6 +21,13 @@ def api_request():
     print('Request received with data: ', request.data)
     return 'ok'
 
+@app.route('/api/response', methods=['GET'])
+def api_response():
+    print('Response for api received')
+    print('Response received at: ', datetime.now())
+    print('Response received from: ', request.remote_addr)
+    print('Response received with data: ', request.data)
+    return 'ok'
 
 @app.route('/hello', methods=['POST'])
 def hello():
