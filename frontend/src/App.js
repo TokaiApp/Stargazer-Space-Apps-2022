@@ -208,8 +208,6 @@ export default function App() {
         <Grid justify="center" alignItems="center" direction="column">
           <Text h4>Welcome 2022 NASA Space App Challenge</Text>
           <Text h1>Enter your search</Text>
-        </Grid>
-        <Grid justify="center" alignItems="center" direction="column">
           <Input 
             width="350px"
             placeholder="Your input here"
@@ -233,7 +231,7 @@ export default function App() {
         </Grid>
         <Grid justify="center" alignItems="center" direction="column">
           <ForceGraph3d
-            height={400}
+            height={650}
             backgroundColor={"rgba(0,0,0,0)"}
             nodeColor={() => "white"}
             linkColor={() => "black"}
