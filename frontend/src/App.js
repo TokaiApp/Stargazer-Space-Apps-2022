@@ -258,7 +258,7 @@ export default function App() {
           />
         </Grid>
         <Grid justify="center" alignItems="center" direction="row">
-          <Grid justify="center" alignItems="center" direction="row">
+        
           <Button
             color="primary"
             auto
@@ -268,18 +268,7 @@ export default function App() {
           >
             Search
           </Button>
-          </Grid>
-        <Grid justify="center" alignItems="center" direction="row">
-          <Button
-            color="primary"
-            auto
-            onPress={() => {
-              handleClicked();
-            }}
-          >
-            Load it
-          </Button>
-          </Grid>
+          
         </Grid>
         <Grid justify="center" alignItems="center" direction="column">
         {userInput ? (
