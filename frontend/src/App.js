@@ -178,8 +178,8 @@ export default function App() {
     //Use axios to send the user input to the server without a cors error
     axios({
       method: 'POST',
-      //url: 'https://stagazerbackend.azurewebsites.net/api/request',
-      url: 'http://127.0.0.1:5000/api/request',
+      url: 'https://stagazerbackend.azurewebsites.net/api/request',
+      //url: 'http://127.0.0.1:5000/api/request',
       data: userInput,
       headers: { 'Access-Control-Allow-Origin': '*',
                   'Content-Type': 'application/json',
