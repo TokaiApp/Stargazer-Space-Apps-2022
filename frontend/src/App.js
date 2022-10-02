@@ -233,7 +233,7 @@ export default function App() {
         </Grid>
         <Grid justify="center" alignItems="center" direction="column">
           <ForceGraph3d
-            height={600}
+            height={400}
             backgroundColor={"rgba(0,0,0,0)"}
             nodeColor={() => "white"}
             linkColor={() => "black"}
