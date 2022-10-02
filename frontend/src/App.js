@@ -273,10 +273,10 @@ export default function App() {
         <Grid justify="center" alignItems="center" direction="column">
         {userInput ? (
             <ForceGraph3d
-              height={400}
+              height={500}
               backgroundColor={"rgba(0,0,0,0)"}
-              nodeColor={() => "white"}
-              linkColor={() => "black"}
+              nodeColor={() => "blue"}
+              linkColor={() => "white"}
               graphData={gData}
             />
           ) : (
