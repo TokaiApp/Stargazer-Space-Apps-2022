@@ -1,13 +1,14 @@
 import './App.css';
-import { Grid, Input, Text, Button } from '@nextui-org/react';
-
+//import { Grid, Input, Text, Button } from '@nextui-org/react';
+import { Text }from '@nextui-org/react';
 //Import 3D force graph effect
-import React, { useState } from 'react';
+import React from 'react';
+//import { useState } from 'react';
 //import * as THREE from 'three';
 //import SpriteText from 'three-spritetext';
 import SampleData from './data/sample.json';
 import ForceGraph3d from "react-force-graph-3d";
-
+/*
 function WelcomeView (){
   const axios = require('axios');
   const [userInput, setUserInput] = useState('');
@@ -21,7 +22,7 @@ function WelcomeView (){
   }).then((postResponse) => {
     console.log(postResponse);
   });
-*/
+
   const handleClicked = () => {
     axios({
       method: 'post',
@@ -43,7 +44,7 @@ function WelcomeView (){
   .catch(function (error) {
     console.log(error);
   });
-*/
+
   return (
     <div className="App">
       <div className="App-background">
@@ -79,7 +80,7 @@ function WelcomeView (){
     </div>
   );
 }
-
+*/
 //Find the length of the SampleData object
 function DataMapper(N = 100) {
   return {
@@ -131,7 +132,7 @@ const UserView = () => {
 }
 
 function App() {
-
+/*
   const axios = require('axios');
   const [serverResponse, setServerResponse] = useState('');
   axios({
@@ -140,7 +141,7 @@ function App() {
   }).then((getResponse) => {
     setServerResponse(getResponse.data);
   });
-
+*/
   return (
       //Conditionally render the WelcomeView or UserView based on the serverResponse
       /*
