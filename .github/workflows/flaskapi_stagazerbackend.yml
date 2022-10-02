@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'StagazerBackend'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_27AE01EC4B614EC79E6F141CEADDDA94 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D647463D2782445CA206B544AC946722 }}
