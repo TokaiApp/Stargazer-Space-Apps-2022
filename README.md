@@ -1,4 +1,4 @@
-# Stargazer
+# Stargazer 1.0
 ## 2022 NASA Space App Challenge
 
 
