@@ -1,6 +1,5 @@
-# 2022 NASA Space App Challenge - 
-
-
+# Stargazer
+## 2022 NASA Space App Challenge
 
 
 
