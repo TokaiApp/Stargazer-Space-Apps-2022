@@ -1,6 +1,7 @@
 from datetime import datetime
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/')
@@ -16,6 +17,8 @@ def favicon():
 @app.route('/api/request', methods=['POST'])
 def api_request():
     print('Request for api received')
+    # Print the request data
+    print(request.data)
     print('Request received at: ', datetime.now())
     print('Request received from: ', request.remote_addr)
     print('Request received with data: ', request.data)
