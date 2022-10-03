@@ -12,7 +12,7 @@
 ## Team
 - [Mark Chen](https://github.com/MarkCodering): frontend, backend  
 - [Seth Harding](https://github.com/SethHasi): AI, team lead  
-- Astrid Chou: slides  
+- [Astrid Chou](https://www.facebook.com/astridlawyer): slides  
 - [Alex Rivest](https://github.com/TeleViaBox): backend  
 - [Ryan Landay](https://github.com/rlanday): AI  
 - [Cindy Lin](https://github.com/Jyue): project idea, AI  
