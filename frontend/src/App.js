@@ -247,7 +247,8 @@ export default function App() {
     <div className="App-background">
       <Grid.Container gap={2} justify="center" alignItems="center" direction="column">
         <Grid justify="center" alignItems="center" direction="column">
-          <Text h4>Welcome 2022 NASA Space App Challenge</Text>
+          <Text h4>Welcome to 2022 NASA Space App Challenge: The Art in Our World</Text>
+          <Text h4>This is Stargazer System, please enter the keyword of the qeury you want to learn more about</Text>
           <Text h1>Enter your search</Text>
           <Input 
             width="350px"
