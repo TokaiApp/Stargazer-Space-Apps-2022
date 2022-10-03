@@ -1,5 +1,9 @@
 # 2022 NASA Space Apps Challenge: The Art in Our Worlds
 ## Stargazer 1.0
+### System Architecture
+![Architecture](Architecture.jpeg)
+
+
 ### Descriptions
 - Share to social media
 - 3D Force Graph using Bloom Effect
